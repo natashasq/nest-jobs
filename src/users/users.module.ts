@@ -1,8 +1,8 @@
-import { Module, OnModuleInit } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
+import { UserRepository } from '../../database/repositories/users.repository';
 import { User, UserSchema } from '../../database/schemas/user.schema';
 import { UsersController } from './users.controller';
-import { UserRepository } from '../../database/repositories/users.repository';
 import { UsersService } from './users.service';
 
 @Module({
@@ -12,9 +12,4 @@ import { UsersService } from './users.service';
   controllers: [UsersController],
   providers: [UsersService, UserRepository],
 })
-export class UsersModule implements OnModuleInit {
-  constructor(private usersService: UsersService) {}
-  onModuleInit() {
-    this.usersService.createUserOnInit();
-  }
-}
+export class UsersModule {}
