@@ -5,12 +5,12 @@ import { v4 as uuisv4 } from 'uuid';
 import { CreateJobDto } from './dto/create-job.dto';
 import { UpdateJobDto } from './dto/update-job.dto';
 
-import { JobsRepository } from '../../database/repositories/jobs.repository';
+import { JobRepository } from '../../database/repositories/jobs.repository';
 import { Job } from '../../database/schemas/job.schema';
 
 @Injectable()
 export class JobsService {
-  constructor(private readonly jobRepository: JobsRepository) {}
+  constructor(private readonly jobRepository: JobRepository) {}
 
   async getJobById(jobId: string): Promise<Job> {
     return this.jobRepository.findOne({ jobId });

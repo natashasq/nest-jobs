@@ -6,7 +6,7 @@ import { Job, JobDocument } from '../schemas/job.schema';
 import { BaseRepository } from './base.repository';
 
 @Injectable()
-export class UserRepository extends BaseRepository<JobDocument> {
+export class JobRepository extends BaseRepository<JobDocument> {
   constructor(@InjectModel(Job.name) private jobModel: Model<JobDocument>) {
     super(jobModel);
   }
